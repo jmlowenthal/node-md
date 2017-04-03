@@ -1,0 +1,168 @@
+html, .katex .text {
+	font-family: "Roboto", sans-serif;
+	font-size: 11pt;
+	color: #444;
+	line-height: 1.4;
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10em;
+	width: 800px;
+	max-width:80%;
+}
+
+h1, h2, h3, h4, h5, h6, dt, th {
+	color: #222;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.7em 0;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 0.8em 0;
+}
+
+h3 {
+	font-size: 1.3em;
+	margin: 1em 0;
+}
+
+h4 {
+	font-size: 1.2em;
+	margin: 1.3em 0;
+}
+
+h5 {
+	font-size: 1.1em;
+	margin: 1.7em 0;
+}
+
+h6 {
+	font-size: 1em;
+	margin: 2.3em 0;
+}
+
+a {
+	color: #02a;
+}
+
+dt {
+	margin-top: 1em;
+}
+
+dd {
+	margin-left: 2em;
+}
+
+/*blockquote {
+	margin: 0;
+	padding: 1px 3em;
+	border-left: 2px solid #ddd;
+}*/
+
+table {
+	min-width: 80%;
+	margin: 1em auto;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+ol, ul {
+	margin-left: -1em;
+}
+
+ol > li {
+	padding-left: 1em;
+}
+
+code {
+	font-family: monospace;
+	font-size: 0.9em;
+}
+
+pre {
+	font-family: monospace;
+	font-size: 0.9em;
+	tab-size: 4;
+}
+
+hr {
+	margin: 3em 0;
+	border-color: #fff;
+}
+
+img, svg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+
+svg {
+	stroke: #444;
+	fill: none;
+}
+
+svg text {
+	stroke: none;
+	fill: #444;
+}
+
+@media print {
+	body * {
+		visibility: collapse;
+	}
+
+	body {
+		font-size: 0.9em;
+	}
+
+	#wrapper, #wrapper * {
+		visibility: visible;
+	}
+
+	#wrapper {
+		margin: 0 !important;
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+}
+
+/* KaTeX styles */
+/*
+	Current W3C spec means this doesn't work as it should,
+	the spec means that even though `overflow-y` is `visible` it
+	becomes `auto` for reasons unknown.
+*/
+/*.katex {
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+}*/
+
+.katex {
+	font-size: 1em;
+}
+
+.katex-display .katex {
+	font-size: 1.5em;
+}
+
+.katex .mpunct {
+	margin-right: 0.2em;
+}
+
+.katex .text {
+	font-size: 0.9em;
+}
