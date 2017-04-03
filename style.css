@@ -156,13 +156,9 @@ svg text {
 }
 
 .katex-display .katex {
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 .katex .mpunct {
 	margin-right: 0.2em;
-}
-
-.katex .text {
-	font-size: 0.9em;
 }
