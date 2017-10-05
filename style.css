@@ -1,51 +1,50 @@
 html, .katex .text {
-	font-family: "Roboto", sans-serif;
-	font-size: 11pt;
+	font-family: sans-serif;
 	color: #444;
 	line-height: 1.4;
+}
+
+html {
+	font-size: 10pt;
 }
 
 #wrapper {
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 10em;
-	width: 800px;
-	max-width:80%;
+	margin-bottom: 20vh;
+	width: 600px;
+	max-width: 80%;
 }
 
 h1, h2, h3, h4, h5, h6, dt, th {
-	color: #222;
+	color: #333;
 	font-weight: bold;
+	margin: 1em 0 0.5em 0;
+	page-break-after: avoid;
 }
 
 h1 {
 	font-size: 2em;
-	margin: 0.7em 0;
 }
 
 h2 {
 	font-size: 1.5em;
-	margin: 0.8em 0;
 }
 
 h3 {
 	font-size: 1.3em;
-	margin: 1em 0;
 }
 
 h4 {
 	font-size: 1.2em;
-	margin: 1.3em 0;
 }
 
 h5 {
 	font-size: 1.1em;
-	margin: 1.7em 0;
 }
 
 h6 {
 	font-size: 1em;
-	margin: 2.3em 0;
 }
 
 a {
@@ -133,9 +132,9 @@ svg text {
 	}
 
 	#wrapper {
-		margin: 0 !important;
-		max-width: 100% !important;
-		width: 100% !important;
+		margin: 0;
+		max-width: 100%;
+		width: 100%;
 	}
 }
 
@@ -148,7 +147,7 @@ svg text {
 /*.katex {
 	max-width: 100%;
 	overflow-x: auto;
-	overflow-y: hidden;
+	overflow-y: visible;
 }*/
 
 .katex {
@@ -162,3 +161,13 @@ svg text {
 .katex .mpunct {
 	margin-right: 0.2em;
 }
+
+.katex .text {
+	font-size: 0.675em;
+}
+
+/* Custom classes */
+.boxed {
+	padding: 0 1em;
+	border: 1px solid grey;
+	page-break-inside: avoid;
