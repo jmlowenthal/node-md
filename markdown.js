@@ -27,7 +27,7 @@ switch (args[0]) {
 		host();
 		break;
 	case "build":
-		build();
+		build(args[2]);
 		break;
 	default:
 		console.log(usage);
@@ -141,7 +141,37 @@ function host() {
 	console.log("Listening on port 8080");
 }
 
-function build(root, buildDir) {
+function copy(src, dst) {
+	if (src != dst) {
+		console.log("Copying " + src + " to " + dst);
+		fs.createReadStream(src).pipe(fs.createWriteStream(dst));
+	}
+	else {
+		console.log("Source and destination are equivalent: " + dst);
+	}
+}
+
+function mkdir(dir) {
+	if (!fs.existsSync(dir)) {
+		console.log("mkdir: " + dir);
+		fs.mkdirSync(dir);
+	}
+}
+
+function build(buildDir) {
+	
+	buildDir = buildDir || "build/";
+
+	mkdir(buildDir);
+
+	copy(__dirname + "/style.css", buildDir + "style.css");
+	copy(__dirname + "/favicon.ico", buildDir + "favicon.ico");
+
+	fullbuild(undefined, buildDir);
+
+}
+
+function fullbuild(root, buildDir) {
 	root = root || "";
 	buildDir = buildDir || "build/";
 
@@ -149,13 +179,7 @@ function build(root, buildDir) {
 
 	console.log("Building " + root);
 
-	if (!fs.existsSync(buildDir + root)) {
-		console.log("mkdir: " + buildDir + root);
-		fs.mkdirSync(buildDir + root);
-	}
-
-	console.log("Copying style.css")
-	fs.createReadStream(__dirname + "/style.css").pipe(fs.createWriteStream(buildDir + "style.css"));
+	mkdir(buildDir + root);
 
 	var filenames = fs.readdirSync(serverRoot + root);
 	for (var i = 0; i < filenames.length; ++i) {
@@ -170,7 +194,7 @@ function build(root, buildDir) {
 			if (!rel.endsWith("/")) {
 				rel += "/";
 			}
-			build(rel, buildDir);
+			fullbuild(rel, buildDir);
 		}
 		else {
 
@@ -188,7 +212,7 @@ function build(root, buildDir) {
 
 				default:
 					console.log("Copying " + rel);
-					fs.createReadStream(local).pipe(fs.createWriteStream(buildDir + rel));
+					copy(local, buildDir + rel);
 					break;
 
 			}
