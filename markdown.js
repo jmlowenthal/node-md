@@ -108,7 +108,7 @@ function host() {
 					}
 				}
 				else if (stats.isDirectory()) {
-					htmlBody = directoryList(request.url);
+					htmlBody = directoryList(uri);
 				}
 
 				// Format and return
@@ -153,6 +153,9 @@ function build(root, buildDir) {
 		console.log("mkdir: " + buildDir + root);
 		fs.mkdirSync(buildDir + root);
 	}
+
+	console.log("Copying style.css")
+	fs.createReadStream(__dirname + "/style.css").pipe(fs.createWriteStream(buildDir + "style.css"));
 
 	var filenames = fs.readdirSync(serverRoot + root);
 	for (var i = 0; i < filenames.length; ++i) {
