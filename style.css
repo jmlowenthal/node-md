@@ -3,6 +3,7 @@ html, .katex .text {
 	color: #444;
 	line-height: 1.6em;
 	font-size: 11pt;
+	text-align: justify;
 }
 
 #wrapper {
