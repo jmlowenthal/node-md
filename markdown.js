@@ -201,6 +201,7 @@ function fullbuild(root, buildDir) {
 			if (!rel.endsWith("/")) {
 				rel += "/";
 			}
+			render(directoryList(rel), buildDir + rel + "index.html");
 			fullbuild(rel, buildDir);
 		}
 		else {
