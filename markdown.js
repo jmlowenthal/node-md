@@ -34,45 +34,46 @@ switch (args[0]) {
 		break;
 }
 
-function host() {
-	function directoryList(root) {
-		try {
-			var filenames = fs.readdirSync(serverRoot + root);
-			var files = [
-				{ path: "..", isDir: true },
-			];
+function directoryList(root) {
+	try {
+		var filenames = fs.readdirSync(serverRoot + root);
+		var files = [
+			{ path: "..", isDir: true },
+		];
 
-			var fileRoot = root.endsWith("/") ? root : root + "/";
-			for (var i = 0; i < filenames.length; ++i) {
-				if (filenames[i].startsWith(".")) continue;
-				var stats = fs.statSync(serverRoot + fileRoot + filenames[i]);
-				files.push({ path: filenames[i], isDir: stats.isDirectory() });
+		var fileRoot = root.endsWith("/") ? root : root + "/";
+		for (var i = 0; i < filenames.length; ++i) {
+			if (filenames[i].startsWith(".")) continue;
+			var stats = fs.statSync(serverRoot + fileRoot + filenames[i]);
+			files.push({ path: filenames[i], isDir: stats.isDirectory() });
+		}
+
+		files.sort(function(a, b) {
+			if (a.isDir && b.isDir) {
+				return a.path.localeCompare(b.path);
 			}
+			else if (a.isDir) {
+				return -1;
+			}
+			else if (b.isDir) {
+				return 1;
+			}
+			else {
+				return a.path.localeCompare(b.path);
+			}
+		});
 
-			files.sort(function(a, b) {
-				if (a.isDir && b.isDir) {
-					return a.path.localeCompare(b.path);
-				}
-				else if (a.isDir) {
-					return -1;
-				}
-				else if (b.isDir) {
-					return 1;
-				}
-				else {
-					return a.path.localeCompare(b.path);
-				}
-			});
-
-			return "<ul>" + files.reduce(function(a, b) {
-				return a + "<li><a href=\"" + fileRoot + b.path + "\">"
-					+ (b.isDir ? "<b>" + b.path + "</b>" : b.path) + "</a></li>";
-			}, "") + "</ul>";
-		}
-		catch (e) {
-			return "<span>" + e + "</span>";
-		}
+		return "<ul>" + files.reduce(function(a, b) {
+			return a + "<li><a href=\"" + fileRoot + b.path + "\">"
+				+ (b.isDir ? "<b>" + b.path + "</b>" : b.path) + "</a></li>";
+		}, "") + "</ul>";
 	}
+	catch (e) {
+		return "<span>" + e + "</span>";
+	}
+}
+
+function host() {
 
 	var server = http.createServer(function(request, response) {
 			var uri = decodeURI(request.url);
