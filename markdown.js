@@ -173,6 +173,12 @@ function build(buildDir) {
 }
 
 function fullbuild(root, buildDir) {
+
+	var template = fs.readFileSync(__dirname + "/template.html", "utf-8");
+	function render(html, output) {
+		fs.writeFile(output, template.replace("<!--content-->", html));
+	}
+
 	root = root || "";
 	buildDir = buildDir || "build/";
 
@@ -204,11 +210,10 @@ function fullbuild(root, buildDir) {
 				case "md":
 					var dest = (buildDir + rel).replace(/\.md$/, ".html");
 					console.log("Rendering " + local + " to " + dest);
-					var data = fs.readFileSync(local);
-					var htmlBody = md.render(data.toString("utf-8"));
+					var data = fs.readFileSync(local, "utf-8");
+					var htmlBody = md.render(data);
 					htmlBody = htmlBody.replace(/\.md/g, ".html");
-					var template = fs.readFileSync(__dirname + "/template.html", "utf-8");
-					fs.writeFile(dest, template.replace("<!--content-->", htmlBody));
+					render(htmlBody, dest);
 					break;
 
 				default:
