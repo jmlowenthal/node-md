@@ -201,7 +201,9 @@ function fullbuild(root, buildDir) {
 			if (!rel.endsWith("/")) {
 				rel += "/";
 			}
-			render(directoryList(rel), buildDir + rel + "index.html");
+			if (!fs.existSync(rel + "index.md")) {
+				render(directoryList(rel), buildDir + rel + "index.html");
+			}
 			fullbuild(rel, buildDir);
 		}
 		else {
