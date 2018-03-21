@@ -6,7 +6,7 @@ var http = require("http"),
 	}),
 	mk = require("./markdown-it-katex");
 
-const usage = "Usage: node markdown.js [ host | build ] <root directory>";
+const usage = "Usage: node markdown host <root directory>\n       node markdown build <root directory> [destination]";
 
 const args = process.argv.slice(2);
 if (args.length < 2) {
