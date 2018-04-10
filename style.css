@@ -1,7 +1,7 @@
 html, .katex .text {
 	font-family: sans-serif;
 	color: #444;
-	line-height: 1.6em;
+	line-height: 1.6;
 	font-size: 11pt;
 	text-align: justify;
 }
@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6, dt, th {
 	color: #333;
 	font-weight: bold;
 	page-break-after: avoid;
+	line-height: 1.1;
 }
 
 h1, h2, h3, h4, h5, h6 {
