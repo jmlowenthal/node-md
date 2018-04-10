@@ -17,28 +17,33 @@ html, .katex .text {
 h1, h2, h3, h4, h5, h6, dt, th {
 	color: #333;
 	font-weight: bold;
-	margin: 1em 0 0.5em 0;
 	page-break-after: avoid;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin: 3em 0 1em 0;
+	padding: 0.4em 0;
+	border-bottom: 1px solid #aaa;
+}
+
 h1 {
-	font-size: 2em;
+	font-size: 2.3em;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 2em;
 }
 
 h3 {
-	font-size: 1.3em;
+	font-size: 1.7em;
 }
 
 h4 {
-	font-size: 1.2em;
+	font-size: 1.4em;
 }
 
 h5 {
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
 
 h6 {
@@ -49,19 +54,23 @@ a {
 	color: #02a;
 }
 
+dl {
+	border-left: 1em solid rgba(0, 0, 0, 0.03);
+	padding: 1em 2em;
+}
+
 dt {
-	margin-top: 1em;
 }
 
 dd {
 	margin-left: 2em;
 }
 
-/*blockquote {
+blockquote {
 	margin: 0;
-	padding: 1px 3em;
-	border-left: 2px solid #ddd;
-}*/
+	padding: 1px 2em;
+	border-left: 1em solid #eee;
+}
 
 table {
 	min-width: 80%;
@@ -79,19 +88,46 @@ ol, ul {
 	margin-left: -1em;
 }
 
-ol > li {
+li {
 	padding-left: 1em;
 }
 
-code {
-	font-family: monospace;
-	font-size: 0.9em;
+ol > li {
+	list-style-type: decimal;
 }
 
-pre {
+ol ol > li {
+	list-style-type: lower-alpha;
+}
+
+ol ol ol > li {
+	list-style-type: lower-roman;
+}
+
+ol ol ol ol > li {
+	list-style-type: upper-alpha;
+}
+
+ol ol ol ol ol > li {
+	list-style-type: upper-roman;
+}
+
+code, pre {
 	font-family: monospace;
 	font-size: 0.9em;
 	tab-size: 4;
+	background-color: #eee;
+	padding: 0.1em 0.2em;
+	border: 1px solid #ddd;
+}
+
+pre {
+	padding: 0.5em;
+}
+
+pre code {
+	background: none;
+	border: none;
 }
 
 hr {
@@ -123,6 +159,10 @@ svg text {
 
 	body {
 		font-size: 0.9em;
+	}
+
+	#wrapper>*:nth-child(1) {
+		margin-top: 0;
 	}
 
 	#wrapper, #wrapper * {
@@ -163,9 +203,3 @@ svg text {
 .katex .text {
 	/*font-size: 0.675em;*/
 }
-
-/* Custom classes */
-.boxed {
-	padding: 0 1em;
-	border: 1px solid grey;
-	page-break-inside: avoid;
