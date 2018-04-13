@@ -129,6 +129,7 @@ pre {
 pre code {
 	background: none;
 	border: none;
+	padding: 0;
 }
 
 hr {
