@@ -115,7 +115,7 @@ function host() {
 				// Format and return
 				if (htmlBody === null) {
 					response.writeHead(200, {
-						"Content-Type": mime.lookup(local)
+						"Content-Type": mime.getType(local)
 					});
 					response.end(data, "binary");
 				}
