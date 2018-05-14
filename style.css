@@ -1,9 +1,12 @@
-html, .katex .text {
-	font-family: sans-serif;
+html {
 	color: #444;
 	line-height: 1.6;
 	font-size: 11pt;
 	text-align: justify;
+}
+
+html, .katex .text {
+	font-family: sans-serif;
 }
 
 #wrapper {
@@ -194,14 +197,14 @@ svg text {
 	font-size: 1.2em;
 }
 
+.katex .text {
+	font-size: 0.8333333333333em;
+}
+
 .katex-display .katex {
 	font-size: 1.4em;
 }
 
 .katex .mpunct {
 	margin-right: 0.2em;
-}
-
-.katex .text {
-	/*font-size: 0.675em;*/
 }
