@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
@@ -10,4 +10,12 @@
 		<!--content-->
 	</div>
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=ml"></script>
+	<script>
+		window.addEventListener("load", function() {
+			var headers = document.getElementsByTagName("h1");
+			if (headers.length > 0) {
+				document.title = headers[0].innerText;
+			}
+		});
+	</script>
 </body>
