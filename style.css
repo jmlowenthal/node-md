@@ -9,6 +9,10 @@ html, .katex .text {
 	font-family: sans-serif;
 }
 
+.katex .mathit {
+	font-family: inherit;
+}
+
 #wrapper {
 	margin-left: auto;
 	margin-right: auto;
@@ -28,6 +32,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 3em 0 1em 0;
 	padding: 0.4em 0;
 	border-bottom: 1px solid #aaa;
+	page-break-after: avoid;
+	page-break-inside: avoid;
 }
 
 h1 {
